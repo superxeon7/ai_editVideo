@@ -1,0 +1,61 @@
+# AI Video Editor Configuration
+
+# AI Processing
+ai:
+  confidence_threshold: 0.75
+  max_insertions_per_10_seconds: 1
+  transcription_model: "base"  # tiny, base, small, medium, large
+  language: "id"  # Indonesian
+  
+# LLM Settings
+llm:
+  model: "claude-sonnet-4-20250514"
+  max_tokens: 2000
+  temperature: 0.3
+  
+# Asset Management
+assets:
+  sources:
+    - pexels
+  pexels_api_key: "${PEXELS_API_KEY}"
+  download_timeout: 30
+  max_retries: 3
+  
+# Rendering
+rendering:
+  default_duration: 1.5  # seconds
+  fade_in: 0.3
+  fade_out: 0.3
+  default_opacity: 0.85
+  default_scale: 0.4
+  preset: "medium"  # ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow
+  crf: 23  # Quality (18-28, lower = better)
+  
+# Video Constraints
+video:
+  max_file_size_mb: 500
+  max_duration_seconds: 300  # 5 minutes
+  supported_formats:
+    - mp4
+    - mov
+    - avi
+  supported_aspect_ratios:
+    - "9:16"
+    - "16:9"
+    
+# Storage
+storage:
+  temp_dir: "temp"
+  output_dir: "output"
+  cleanup_after_hours: 24
+  
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/video_editor.log"
+  
+# Feature Flags
+features:
+  enable_cutaway: false
+  enable_face_detection: false
+  enable_ai_generated_assets: false
